@@ -1,0 +1,32 @@
+providers:
+  aicredits:
+    api_type: openai_chatcompletions
+    base_url: https://aicredits.in/v1
+    token_key: AICREDITS_API_KEY
+
+models:
+  brain:
+    provider: aicredits
+    model: anthropic/claude-haiku-5.5
+
+agents:
+  root:
+    model: brain
+    description: Shardul ka study assistant
+    instruction: |
+      Tu Shardul ka study assistant hai. Hinglish mein baat kar.
+      Sirf current folder (classroom) ke andar kaam kar.
+      Code ke liye sirf hint de aur galti pakad, poora solution mat likh.
+      Pehle STATUS.md padh ke subject ka haal samajh.
+    toolsets:
+      - type: filesystem
+        allow_list:
+          - "."
+
+      - type: mcp
+        remote:
+          url: "https://mcp.tavily.com/mcp/"
+          transport_type: "streamable"
+          headers:
+            Authorization: "Bearer ${env.TAVILY_API_KEY}"
+        tools: ["tavily_search", "tavily_extract"]

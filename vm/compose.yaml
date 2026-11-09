@@ -1,0 +1,32 @@
+name: study-agent
+
+services:
+  agent-box:
+    image: study-agent-box:v1
+    build: .
+    container_name: study-agent-box
+    init: true
+    command: ["sleep", "infinity"]
+    working_dir: /workspace
+    restart: "no"          # Docker Desktop se khud start/stop karega tu
+
+    # --- Resource caps ---
+    mem_limit: 10g
+    memswap_limit: 10g     # swap band: 10g se zyada maangega toh process kill hoga
+    cpus: 6
+    pids_limit: 512        # fork bomb se bachne ke liye
+
+    # --- Mounts (folders vm/ ke ek level upar hain: D:\classroom-test\) ---
+    volumes:
+      - ../classroom:/classroom:ro        # assignments yahan se padhega, likh nahi sakta
+      - ../workspace:/workspace           # output/, scratch/, logs/ yahan
+      - ./constitution:/constitution:ro   # rules, AI edit nahi kar sakta
+
+    # 25GB storage cap: ye line Docker Desktop (WSL2) pe shayad error de ya ignore ho.
+    # Isliye comment mein hai. Pehle README/message wala note padh.
+    # storage_opt:
+    #   size: "25G"
+
+    # NOTE: docker.sock yahan kabhi mount mat karna.
+    environment:
+      - TZ=Asia/Kolkata
