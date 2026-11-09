@@ -1,0 +1,874 @@
+                           Progressive Education Society's
+                        Modern College of Engineering, Pune-05.
+     Level 4.5 An Autonomous Institute affiliated to Savitribai Phule Pune University
+
+
+
+
+              AY: 2026-27       Semester : I
+F.Y. B. Tech. in Artificial Intelligence and Data Science
+                     (2026 Pattern)
+
+    Course name: Object Oriented Programming
+                  Course Code: 26ESC09103
+                                       on
+             UNIT-2: Inheritance and Pointers
+
+
+
+
+                                                                                        1
+                          Course Structure
+Course Code: 26ESC09103       Course Name: Object Oriented Programming
+
+Semester: I
+
+Teaching Scheme:
+                           Examination Scheme:
+Lecture: 02 Hrs./ week
+                           Cumulative Internal Examination (CIE): 20 Marks
+                           Semester-End Examination (SEE): 30 Marks
+Credits:02
+
+
+
+
+                                                                         2
+Course Objective:
+
+∙ To introduce the fundamentals of Object-Oriented
+  Programming(OOP).
+∙ To familiarize students with inheritance and pointers for
+  modular program design.
+∙ To acquaint students with concepts of polymorphism, virtual
+  functions, files and streams.
+∙ To provide the knowledge of in exception handling and
+  templates.
+
+
+
+                                                                3
+Course outcomes:
+CO1: Utilize the concepts of object-oriented programming for developing software
+ solutions.
+
+
+CO2:Make use of inheritance and pointers to enhance modularity in program design.
+
+
+
+CO3:Apply polymorphism and file I/O in object-oriented programming.
+
+
+CO4: Choose exception handling and templates for programming solutions.
+
+
+
+
+                                                                                    4
+                        Syllabus of Unit II
+
+Inheritance: Introduction, Types of inheritance, public, private and protected
+inheritance, constructor and destructor in derived class, overriding member
+functions, ambiguity in multiple inheritance, virtual base class, friend class and
+nested class.
+
+Pointers: Declaring and initializing pointers, indirection operators.
+
+Memory management: New and delete, pointers to objects, this pointer.
+Relevant applications.
+
+
+
+
+                                                                                 5
+Text Books:
+1.  Deitel,“C++ How to Program”, Pearson Education, 4th Edition, ISBN:81-297-
+   0276-2.
+2. Robert Lafore,” Object Oriented Programming with C++”, Pearson Education,
+   4th Edition, 2020, ISBN:9788131722824.
+Reference Books:
+1.  Herbert Schildt, “C++-The complete reference”, 8th Edition, McGraw Hill
+   Professional, 2011, ISBN:978-00-72226805.
+2. Matt Weisfeld, “The Object-Oriented Thought Process”, 3rd Edition, Pearson
+   Education, ISBN-13:075 2063330166.
+3. 3. E.Balagurusamy, “Object-Oriented Programming with C++”, 8th Edition,
+   McGraw Hill Education (India) Private Limited , ISBN 10: 93-89949-18-1, ISBN
+   13: 978-93-89949-186.
+4. Cox Brad, Andrew J. Novobilski, “Object –Oriented Programming: An
+   Evolutionary Approach”, 2nd Edition, Addison–Wesley, ISBN:13:978-020-
+   1548341.
+
+                                                                            6
+    MOOC Courses (Web Links):
+
+•   Advanced C++, By Prof Kannan Moudgalya – “Principal Investigator of
+    Spoken Tutorial Project”, Indian Institute of Technology Bombay
+    https://onlinecourses.swayam2.ac.in/aic20_sp01/preview
+•   Programming in Modern C++, By Prof. Partha Pratim Das , IIT
+    Kharagpur
+    https://onlinecourses.nptel.ac.in/noc24_cs44/preview
+•   Programming in C++, By Prof. Partha Pratim Das, IIT Kharagpur
+    https://swayam.gov.in/nd1_noc20_cs07/preview
+•   Programming in C++, Indian Institute of Technology, Kharagpur and
+    NPTEL via Swayam
+    https://www.classcentral.com/course/swayam-programming-in-c-6704
+•   Spoken tutorial course by IIT Bombay
+    https://spoken-tutorial.org/tutorial-search/?search_language=English
+
+
+
+
+                                                                           7
+   Inheritance
+• Inheritance is one of the fundamental concepts of Object-
+  Oriented Programming (OOP) that allows a class to acquire
+  the properties and behaviors of another class.
+
+• The mechanism of deriving a new class from an old one is
+  called Inheritance.
+
+• The old class is referred as base class
+• The new class is referred as derived class
+
+
+
+
+                                                              8
+Need and Concept
+•   Reusability is another important feature of OOP.
+•   Using the features (data or functions) of one class into another class.
+•   Mechanism of deriving new class from an old one is called inheritance.
+•   Syntax
+
+class BaseClass
+{
+  // base class members
+};
+class DerivedClass : accessSpecifier BaseClass {
+
+  // derived class members
+};
+⚫ The default access specifier is private.
+                                                                              9
+Access Specifiers
+•   Public: members are accessible from outside the class.
+•   Private: Members could not be accessed (or viewed) from outside
+    the class.
+•   Protected: Members can not be accessed from outside the class
+    however, they can be accessed from inherited class.
+•   Example:
+
+
+
+
+                                                                  10
+11
+Base class        public            protected          private
+member            inheritance       inheritance        inheritance
+
+Public            Public            Protected          Private
+
+
+Protected         Protected         Protected          Private
+
+                  Not directly      Not directly       Not directly
+Private
+                  accessible        accessible         accessible
+
+Remember: Inheritance changes the accessibility of public and
+protected members, but it does not make the base class's private
+members directly accessible to the derived class.
+
+                                                                      12
+Types of Inheritance
+
+
+
+
+                       13
+                         Single Inheritance
+One class inherits properties of another class
+
+
+
+
+  Output
+ This is a Vehicle
+ This Vehicle is Car
+
+
+
+                                                 14
+Multilevel Inheritance
+Derived a class from another derived class
+
+                                     Syntax
+
+
+
+
+     Where:
+     A is the base class.
+     B inherits from A.
+     C inherits from B.
+     C can access all accessible members inherited through
+     the hierarchy.                                          15
+#include <iostream>                    class Result : public Student
+using namespace std;                   {
+                                       public:
+class Person                              void showResult()
+{                                         {
+public:                                     cout << "I have passed the
+   void showPerson()                   exam." << endl;
+   {                                      }
+     cout << "I am a person." << endl; };
+   }                                   int main()
+};                                     {
+class Student : public Person             Result r;
+{
+public:                                   r.showPerson();
+   void showStudent()                     r.showStudent();
+   {                                      r.showResult();
+     cout << "I am a student." << endl;
+   }                                      return 0;
+};                                      }
+                                                                         16
+    Multiple Inheritance
+•   Deriving a class from several other base classes
+•   It allows a derived class to combine the properties and
+    behaviors of multiple parent classes into a single class.
+•   Enables a class to reuse functionality from multiple base
+    classes.
+•   Helps combine related features without duplicating code.
+
+
+
+
+                                                            17
+•   A derived class inherits from multiple base classes by specifying all
+    parent classes after the inheritance operator (:)
+    Syntax:
+
+
+
+
+    Where:
+    •Base1 and Base2 are the parent classes.
+    •Derived inherits the accessible members of both base
+    classes.
+    •Multiple base classes are separated using commas.
+                                                                        18
+Ambiguity in Multiple Inheritance
+• In multiple inheritances, when one class is derived from two or
+   more base classes then there may be a possibility that the base
+   classes have functions with the same name, and the derived class
+   may not have functions with that name as those of its base classes.
+• If the derived class object needs to access one of the similarly
+   named member functions of the base classes then it results in
+   ambiguity because the compiler gets confused about which base’s
+   class member function should be called.
+
+
+                                                                         19
+20
+In this example, derived class C inherited the two base classes A and B
+having the same function name func(). When the object of class C is
+created and called the function func() then the compiler gets confused
+that which base class member function func() should be called.
+
+
+                                                                          21
+Solution to Ambiguity:
+To solve ambiguity scope resolution operator is used denoted by ‘:: ’
+
+Syntax:
+             ObjectName.ClassName::FunctionName();
+
+
+
+
+                                                                        22
+#include <iostream>
+using namespace std;             cout << "I am in class B" << endl;
+                                    }
+// Base class A                  };
+class A                          // Derived class C
+{                                class C : public A, public B
+public:                          {
+   void func()                   };
+   {
+     cout << "I am in class A"   // Driver Code
+<<endl;                          int main()
+   }                             {
+};                                  C obj;
+
+// Base class B                      // Removing ambiguity using scope resolution operator
+
+class B                               obj.A :: func();
+{                                     obj.B :: func();
+public:
+   void func()                        return 0;
+   {                             }
+                                                                                             23
+Hierarchical Inheritance
+ Deriving multiple subclasses form single base class
+
+
+
+
+                                                       24
+Hierarchical Inheritance
+ Syntax                          Where:
+class Base {                     • Base is the parent class.
+
+// Base class members            • Derived1 and Derived2 inherit
+                                   from Base.
+};
+                                 • Each derived class gets its own
+class Derived1 : public Base {     copy of the accessible members
+// Derived1 members                of the base class.
+};
+class Derived2 : public Base {
+// Derived2 members
+};
+                                                                25
+#include <iostream>                 class Teacher : public Person
+using namespace std;                {
+class Person                        public:
+{                                      void teach()
+public:                                {
+   void show()                           cout << "I am teaching." << endl;
+   {                                   }
+      cout << "I am a person." <<   };
+endl;
+   }                                int main()
+};                                  {
+class Student : public Person          Student s;
+{                                      Teacher t;
+public:                                s.show();
+   void study()                        s.study();
+   {
+      cout << "I am studying." <<       t.show();
+endl;                                   t.teach();
+   }                                    return 0;
+};                                  }                                  26
+Hybrid Inheritance
+Hybrid inheritance is a type that combines two or more inheritance
+types within a single class hierarchy.
+1.   Combines multiple inheritance types such as single, multiple,
+     multilevel and hierarchical inheritance
+2.   Provides greater flexibility in designing class hierarchies.
+3.   Can lead to ambiguity issues such as the diamond problem.
+
+
+
+
+                                                                     27
+           Diamond Problem in Hybrid Inheritance
+The Diamond Problem occurs in C++ during multiple inheritance
+when a derived class inherits from two base classes that themselves
+inherit from a common base class. This creates ambiguity because the
+derived class ends up with multiple copies of the same base class
+members, making member access unclear.
+
+
+Solution to Diamond Problem
+
+The Diamond Problem can be solved using Virtual inheritance.
+Virtual inheritance ensures that only one shared instance of the base
+class exists, regardless of how many times it is inherited.
+
+                                                                        28
+Need for Virtual Base Classes
+
+ Consider the situation where we
+ have one class A . This class A is
+ inherited    by     two     other
+ classes B and C. Both these class
+ are inherited into another in a
+ new class D as shown in figure
+
+
+
+
+                                      29
+Virtual base class
+•   The duplication of inherited members due to multiple paths can be
+    avoided by making the common base class as virtual base class.
+•   Virtual base classes are used in virtual inheritance in a way of
+    preventing multiple "instances" of a given class appearing in an
+    inheritance hierarchy when using multiple inheritances.
+
+
+
+
+                                                                     30
+The data members/function of class A are
+inherited twice to class D. One through
+class B and second through class C.
+When any data / function member of
+class A is accessed by an object of
+class D, ambiguity arises as to which
+data/function member would be called?
+One inherited through B or the other
+inherited through C. This confuses
+compiler and it displays error.
+
+
+
+
+                                           31
+    How to resolve this issue?
+To resolve this ambiguity when class A is inherited in both class B and
+class C, it is declared as virtual base class by placing a keyword virtual as :
+Syntax for Virtual Base Classes:
+  Syntax 1:
+  class B : virtual public A
+  {
+  };
+  Syntax 2:
+  class C : public virtual A
+  {
+  };
+
+Note: virtual can be written before or after the public. Now only one copy
+of data/function member will be copied to class C and class B and
+class A becomes the virtual base class.
+                                                                            32
+#include <iostream>              class Result : public Student, public
+using namespace std;             Teacher
+                                 {
+class Person                     public:
+{                                   void display()
+public:                             {
+   int age;                           age = 20;
+};                                    cout << "Age = " << age;
+                                    }
+class Student : virtual public   };
+Person
+{                                int main()
+};                               {
+                                    Result r;
+class Teacher : virtual public      r.display();
+Person
+{                                    return 0;
+};                               }                                 33
+Constructor and Destructor in a Derived Class
+A constructor is a special     A destructor is a special member
+member function that is        function that is automatically
+automatically called when an   called when an object is
+object is created.             destroyed.
+
+Syntax                           Syntax
+
+
+
+
+                                                             34
+35
+36
+Overriding Member Function
+When a derived class provides its own definition of a member
+function that is already present in the base class, it is called function
+overriding.
+ #include <iostream>                       public:
+ using namespace std;                         void sound()
+                                              {
+ class Animal                                   cout << "Dog barks" << endl;
+ {                                            }
+ public:                                   };
+    void sound()
+    {                                      int main()
+      cout << "Animal makes a              {
+ sound" << endl;                              Dog d;
+    }
+ };                                            d.sound();
+                                                             Output: Dog barks
+ class Dog : public Animal                     return 0;
+ {                                         }
+                                                                               37
+Friend class:
+⚫ A friend class is a class that is given special permission to access
+  the private and protected members of another class.
+⚫ Normally, private and protected members cannot be accessed
+  directly from another class. By declaring a class as a friend, we
+  allow it to access these members.
+⚫ Syntax:
+       class ClassA
+       {
+                friend class ClassB;
+       };
+Here, ClassB is declared as a friend of ClassA.Therefore, ClassB can
+access the private and protected members of ClassA.
+
+
+                                                                         38
+#include <iostream>           Marks: " << s.marks;
+using namespace std;             }
+                              };
+class Student
+{                             int main()
+  private:                    {
+        int marks = 90;          Student s;
+                                 Teacher t;
+      friend class Teacher;
+ };                               t.display(s);
+
+class Teacher                     return 0;
+ {                            }
+   public:
+   void display(Student s)
+ {
+    cout << "Student
+                                                     39
+Nested Class in C++:
+• A nested class is a class declared      Syntax:
+  inside another class. The class         class Outer
+  declared inside is called the nested    {
+  class, and the class containing it is   public:
+  called the outer class.                    class Inner
+• It helps organize related classes,         {
+  improves code readability, and                // Members of nested class
+  provides better control over the           };
+  visibility of the inner class.          };
+
+   Real-life example:                     Outer::Inner obj;
+Think of a car. A car has different
+components, such as an engine. Since
+the engine is closely related to the
+car, we can represent Engine as a
+class inside the Car class.                                             40
+                             void display()
+#include <iostream>              {
+using namespace std;                cout << "Engine HP: " << horsepower;
+                                 }
+class Car                   };
+{                           };
+public:
+   string carName = "BMW"; int main()
+                            {
+   class Engine               Car c;
+   {                          Car::Engine e;
+   public:
+      int horsepower = 200;   cout << "Car Name: " << c.carName <<
+                            endl;
+                              e.display();
+
+                                return 0;
+                            }                                      41
+Pointers
+•   Pointer is a variable that holds memory address of another variable
+    of same type.
+•   This memory address is the location of another variable where it
+    has been stored in the memory.
+•   It supports dynamic memory allocation routines.
+
+
+
+
+                                                                          42
+Declaration and Initialization of pointer
+ 1)Declaring pointers in C++
+   Syntax: data_type *pointer_name;
+
+ •   Data_type refers to the type of the value/ data the pointer is
+     pointing to.
+ •   The unary operator (*), also known as the dereference operator,
+     indicates that the variable is a pointer. It is essential when declaring
+     a pointer.
+ •   The term pointer_name is the placeholder for the name of the
+     pointer you are creating.
+
+
+
+
+                                                                            43
+    Indirection Operator (*):
+•    The indirection operator * is used with pointers. It is also called the
+     dereference operator.
+•    A pointer stores the address of another variable, while * is used to
+     access the value stored at that address.
+
+
+
+    Here:
+    &x → address of x
+    p → stores the address of x
+    *p → accesses the value of x
+
+
+
+
+                                                                            44
+2) Initializing pointers
+1. Assigning an existing variable’s address
+The most common way to initialize a pointer is by storing the address
+of an already declared variable. This directly links the pointer to that
+variable’s memory location, allowing us to access or modify its value
+through the pointer using dereferencing:
+
+
+
+
+                                                                       45
+2. Using nullptr (Modern C++)
+
+Sometimes we need to declare a pointer in advance, even if we don’t
+yet have a variable for it to point to for example, when a pointer will
+later be assigned dynamically allocated memory or a value returned by
+a function. In such cases, we should initialize the pointer with nullptr.
+
+
+
+
+                                                                            46
+                   Types of Pointer
+1. Null pointer
+A null pointer doesn’t point to any memory location. Null pointer helps to
+ensure that a pointer does not accidentally reference garbage memory.
+2. Void pointer
+A void pointer (also called a generic pointer) can hold the memory address of
+any data type, but it cannot be dereferenced directly without typecasting.
+
+
+
+
+                                                                                47
+3. Dangling pointer
+A dangling pointer is one that points to memory that has already been
+freed or deleted.
+
+
+
+
+4. Wild pointer
+A wild pointer is an uninitialized pointer that points to a random
+memory location.
+
+
+
+
+                                                                        48
+5. Constant pointer
+constant pointer is a pointer that, once initialized, cannot point to a
+different address, but the value stored at that address can still be
+modified
+
+
+
+
+                                                                          49
+Example of null pointer:
+#include <iostream>
+using namespace std;
+                         • If we try to access a null
+int main()                 pointer using the * operator,
+{                          it causes undefined
+   int *ptr = nullptr;     behavior. The program may
+                           crash.
+    cout << *ptr;
+                         • Output: No fixed output.
+    return 0;
+}
+
+
+
+                                                           50
+       Example of void pointer
+#include <iostream>
+using namespace std;
+int main()
+                                    Output: Integer value = 10
+{
+                                             Float value = 5.5
+   int a = 10;
+   float b = 5.5;
+   void *ptr;
+   ptr = &a;
+   cout << "Integer value = " << *(int*)ptr << endl;
+   ptr = &b;
+   cout << "Float value = " << *(float*)ptr << endl;
+   return 0;
+}
+                                                                 51
+Example of constant pointer
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   int a = 10;
+   int b = 20;
+
+    int *const ptr = &a;
+
+    cout << "Value of a = " << *ptr << endl;
+
+    *ptr = 15; // Allowed: change the value
+
+    cout << "Updated value of a = " << a << endl;
+
+    ptr = &b; // Error: cannot change the address
+
+    return 0;
+}
+                                                    52
+                 Memory Allocation
+Memory management means allocating and releasing memory during program
+execution.
+
+
+
+
+                                                                     53
+Static Memory Allocation
+Memory is allocated at compilation time
+e.g 1) int age = 20;
+
+    2) int marks[5];
+        cin >> marks[0];
+
+Dynamic Memory
+Memory is allocated at run time
+In C++, dynamic memory allocation allows programs to allocate and
+release memory during runtime. The new operator allocates memory
+from the free store (heap) and returns its address, while the delete
+operator releases the allocated memory when it is no longer needed.
+
+                                                                      54
+  Dynamic Memory Allocation Using new
+  The new operator allocates memory for a single object and returns a
+  pointer to the allocated memory.
+  Syntax
+
+
+
+
+Where:
+• pointer stores the address of the allocated memory.
+• data_type specifies the type of object to allocate.
+• value is an optional initial value assigned during allocation.
+
+                                                                    55
+e.g
+1) int *p = new int;
+
+2) int *arr = new int[5]{10, 20, 30, 40, 50};
+
+
+
+
+                                                56
+Example of Dynamic Memory Allocation:
+ #include <iostream>
+ using namespace std;
+
+ int main()
+ {
+    int *ptr = new int;                    Output: Value = 10
+
+     *ptr = 10;
+
+     cout << "Value = " << *ptr << endl;
+
+     delete ptr;
+
+     return 0;
+ }
+                                                                57
+Pointers to Objects:
+A pointer to an object is a pointer variable that stores the address of an object
+of a class.
+
+1. ClassName *pointerName;
+This statement declares a pointer variable that can store the address of an
+object of a particular class.
+Example: Student *ptr;
+
+2. pointerName = &objectName;
+This statement stores the address of an existing object in the pointer.
+Example: Student s;
+           ptr = &s;
+
+
+
+                                                                              58
+3. pointerName->memberFunction();
+This statement calls a member function of an object through a pointer.
+Example: ptr->display();
+
+
+4. pointerName->dataMember;
+This statement accesses a data member of an object through a pointer.
+Example: ptr->marks = 90;
+
+
+
+
+                                                                         59
+                Example of pointers to objects:
+#include <iostream>                 int main()
+using namespace std;                {
+                                       Student s;
+class Student                          s.marks = 90;
+{
+public:                                Student *ptr = &s;
+   int marks;
+                                       ptr->display();
+     void display()
+     {                                return 0;
+       cout << "Marks = " << marks; }
+     }
+};
+                                       Output: Marks = 90
+                                                            60
+This pointer:
+The this pointer is a special pointer available inside the non-static member
+functions of a class. It points to the current object that calls the member
+function.
+                                              void display()
+                                                 {
+  #include <iostream>
+                                                    cout << "Marks = " <<
+  using namespace std;
+                                              marks;
+                                                 }
+  class Student
+                                              };
+  {
+  public:
+                                              int main()
+     int marks;
+                                              {
+                                                 Student s;
+     void setMarks(int marks)
+     {
+                                                 s.setMarks(90);
+        this->marks = marks;
+                                                 s.display();
+     }
+                                               return 0;
+                                           }                                   61
+          Use of this pointer in parameterized constructor
+
+#include <iostream>                 void display()
+using namespace std;                  {
+                                        cout << "Marks = " << marks;
+class Student                         }
+{                                  };
+   int marks;
+                                   int main()
+public:                            {
+                                      Student s(90);
+//parameterized constructor           s.display();
+   Student(int marks)
+   {                                   return 0;
+     this->marks = marks;          }
+   }
+                                                                 62
+Thank You
+
+
+            63
+

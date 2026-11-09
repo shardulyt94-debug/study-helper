@@ -1,0 +1,63 @@
+--- Car ---
+Vehicle Number : MH12AB1234
+Brand          : Maruti
+Model          : Swift
+Engine Power   : 62 kW
+Seats          : 5
+
+--- Truck ---
+Vehicle Number : MH14CD5678
+Brand          : Tata
+Model          : Ace
+Engine Power   : 22 kW
+Payload        : 0.75 tons
+
+--- Motorcycle ---
+Vehicle Number : MH12EF9012
+Brand          : Honda
+Model          : Shine
+Engine Power   : 7.7 kW
+Engine Capacity: 125 cc
+
+--- Electric Vehicle ---
+Vehicle Number : MH12GH3456
+Brand          : Tata
+Model          : Nexon EV
+Engine Power   : 95 kW
+Battery Type   : Lithium-ion
+Capacity       : 30.2 kWh
+Voltage        : 350 V
+Range          : 312 km
+
+=== Fleet (via base class pointers) ===
+--- Car ---
+Vehicle Number : MH12AB1234
+Brand          : Maruti
+Model          : Swift
+Engine Power   : 62 kW
+Seats          : 5
+
+--- Truck ---
+Vehicle Number : MH14CD5678
+Brand          : Tata
+Model          : Ace
+Engine Power   : 22 kW
+Payload        : 0.75 tons
+
+--- Motorcycle ---
+Vehicle Number : MH12EF9012
+Brand          : Honda
+Model          : Shine
+Engine Power   : 7.7 kW
+Engine Capacity: 125 cc
+
+--- Electric Vehicle ---
+Vehicle Number : MH12GH3456
+Brand          : Tata
+Model          : Nexon EV
+Engine Power   : 95 kW
+Battery Type   : Lithium-ion
+Capacity       : 30.2 kWh
+Voltage        : 350 V
+Range          : 312 km
+

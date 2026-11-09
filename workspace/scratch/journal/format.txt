@@ -1,0 +1,74 @@
+                           Progressive Education Society’s
+                      MODERN COLLEGE OF ENGINEERING
+                              Shivajinagar, Pune – 411005
+          (An Autonomous Institute Affiliated to Savitribai Phule Pune University)
+                      Level 4.5 First Year B.Tech. (2026 Pattern)​
+______________________________________________________________________________​
+
+
+                First Page for every assignment would be
+
+
+
+
+Assignment No.:
+
+Title:      //Short problem statement
+
+Course Outcome:
+
+Date of Completion:
+
+Assessment Grade / Marks:
+
+Assessor’s Sign with Date:
+                           Progressive Education Society’s
+                      MODERN COLLEGE OF ENGINEERING
+                              Shivajinagar, Pune – 411005
+          (An Autonomous Institute Affiliated to Savitribai Phule Pune University)
+                      Level 4.5 First Year B.Tech. (2026 Pattern)​
+______________________________________________________________________________​
+
+
+Assignment write-up should be in this format. Use rule pages for assignment write-up
+
+
+
+Roll No.
+Name:
+Div:
+Batch:
+Assignment No:                                                  Date:
+
+
+Title / Problem Statement:
+
+
+Theory: //Write briefly about the programming concepts used in the given
+program along with their syntax. For each relevant concept, write at least two lines
+explaining its purpose and how it is used in the program.
+
+
+
+Algorithm:
+
+
+Input:
+
+
+Output:
+
+Conclusion:
+                           Progressive Education Society’s
+                      MODERN COLLEGE OF ENGINEERING
+                              Shivajinagar, Pune – 411005
+          (An Autonomous Institute Affiliated to Savitribai Phule Pune University)
+                      Level 4.5 First Year B.Tech. (2026 Pattern)​
+______________________________________________________________________________​
+
+
+
+
+Program: // Write the program with proper indentation and use blank pages to
+write the program. Maintain proper spacing and neatness in the program.
+
