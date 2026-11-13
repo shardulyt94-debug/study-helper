@@ -2,7 +2,7 @@ name: study-agent
 
 services:
   agent-box:
-    image: study-agent-box:v1
+    image: study-agent-box:v2
     build: .
     container_name: study-agent-box
     init: true
@@ -21,6 +21,7 @@ services:
       - ../classroom:/classroom:ro        # assignments yahan se padhega, likh nahi sakta
       - ../workspace:/workspace           # output/, scratch/, logs/ yahan
       - ./constitution:/constitution:ro   # rules, AI edit nahi kar sakta
+      - ./container_tools:/tools:ro
 
     # 25GB storage cap: ye line Docker Desktop (WSL2) pe shayad error de ya ignore ho.
     # Isliye comment mein hai. Pehle README/message wala note padh.

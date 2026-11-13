@@ -7,10 +7,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     sudo git curl wget ca-certificates build-essential \
     pandoc poppler-utils nodejs npm \
     unzip zip jq ripgrep less nano procps file \
+    graphviz fontconfig fonts-noto-core fonts-dejavu-core \
+    libreoffice-writer libreoffice-impress libreoffice-calc \
+    libpango-1.0-0 libpangoft2-1.0-0 libharfbuzz-subset0 \
     && rm -rf /var/lib/apt/lists/*
 
 # Python tools jo assignments mein kaam aayenge (baaki AI khud install kar lega)
-RUN pip install --no-cache-dir requests pymupdf4llm python-docx openpyxl
+RUN pip install --no-cache-dir requests pymupdf4llm python-docx openpyxl \
+    pymupdf pdfplumber pillow matplotlib schemdraw graphviz weasyprint python-pptx
 
 # Non-root user + passwordless sudo.
 # Abhi loose access: sudo chalta hai. Baad mein tight karna ho toh
